@@ -7,7 +7,7 @@ import './App.css'
 
 
 function App() {
-  //the useState hook provide us the 
+  //the useState hook provide us the array of 2 elements 1 is the variable and 2nd one is a functional component
   let [counter , setCounter] = useState(18)
 
   // let counter= 18;
