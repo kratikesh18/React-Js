@@ -87,8 +87,8 @@ function App() {
           />
           <label htmlFor="rangeInput">Length: {length}</label>
         </div>
-        <div className="grid grid-cols-2 w-[100%] self-center">
-          <div>
+        <div className="grid grid-cols-2 w-[100%] place-self-center">
+          <div >
             <input
               type="checkbox"
               id="lower"
