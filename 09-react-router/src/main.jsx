@@ -15,6 +15,30 @@ import Contact from "./Components/Contact/Contact.jsx";
 import UserInfo from "./Components/UserInfo/UserInfo.jsx";
 import Github, { gitInfo } from "./Components/Github/Github.jsx";
 
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route path="" element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="contact-us" element={<Contact />} />
+
+        {/* by the below way we can get the parameters from the use dynamically by nesting   */}
+      <Route path="userinfo" element={<UserInfo />}>
+        <Route path=":data" element={<UserInfo />} />
+      </Route>
+
+      <Route loader={gitInfo} path="github" element={<Github/>}/>
+              {/* we passed the function here but we need to use this data as well so refer to the line 3 of Github.jsx */}
+    </Route>
+  )
+  );
+  
+  ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
 // const router = createBrowserRouter(
 //     [{
 //       path:'/',   //is a top level element
@@ -36,27 +60,3 @@ import Github, { gitInfo } from "./Components/Github/Github.jsx";
 // )
 
 // the same thing can be done using more simpler syntax as well
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route path="" element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="contact-us" element={<Contact />} />
-
-        {/* by the below way we can get the parameters from the use dynamically by nesting   */}
-      <Route path="userinfo" element={<UserInfo />}>
-        <Route path=":data" element={<UserInfo />} />
-      </Route>
-
-      <Route loader={gitInfo} path="github" element={<Github/>}/>
-              {/* we passed the function here but we need to use this data as well so refer to the line 3 of Github.jsx */}
-    </Route>
-  )
-);
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
