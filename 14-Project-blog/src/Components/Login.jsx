@@ -12,7 +12,7 @@ function Login() {
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("");
 
-  const login = async () => {
+  const login = async (data) => {
     setError("");
     try {
       const session = await authService.login(data);
