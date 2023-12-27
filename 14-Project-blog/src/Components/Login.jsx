@@ -29,23 +29,30 @@ function Login() {
   };
 
   return (
-    <div>
-      <div>
+    <div className="w-full">
+      <div className=" bg-slate-700 text-white flex flex-col py-4 gap-4 justify-center items-center">
         <div>
           <span>
-            <Logo width="100%" />
+            <Logo  />
           </span>
         </div>
         
         <h2>Sign in to your account</h2>
+
         <p>
           Don&apos;t have any account?&nbsp;
-          <Link to="/signup">Sign up</Link>
+          <Link className="underline" to="/signup">Sign up</Link>
         </p>
-        {error && <p>{error}</p>}
-        <form onSubmit={handleSubmit(login)}>
-            <div>
+
+        {error && <p className="text-red-600 font-bold">{error}</p>}
+
+        <form 
+          className=""
+        onSubmit={handleSubmit(login)}>
+            <div className="flex flex-col gap-4  justify-center items-center" >
+
                 <Input
+                className="" 
                 label = "Email:"
                 placeholder = "Enter Your Email"
                 type = "email"
@@ -58,14 +65,14 @@ function Login() {
                 />
 
                 <Input
-                label = "Password"
+                label = "Password:"
                 type = "password"
                 placeholder = "Enter your Password"
                 {...register("password",{
                     required:true
                 })}
                 />
-                <Button type="submit">Sign in</Button>
+                <Button className="w-fit" type="submit">Login</Button>
             </div>
         </form>
       </div>

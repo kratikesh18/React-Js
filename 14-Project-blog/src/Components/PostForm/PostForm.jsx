@@ -17,7 +17,7 @@ function PostForm({ post }) {
     });
 
   const navigate = useNavigate();
-  const userData = useSelector((state) => state.user.userData);
+  const userData = useSelector((state) => state.auth.userData);
 
   const submit = async (data) => {
     if (post) {
@@ -80,7 +80,7 @@ function PostForm({ post }) {
 
   } , [watch , slugTransform, setValue]) 
   return (
- <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+ <form onSubmit={handleSubmit(submit)} className="flex flex-wrap bg-slate-200">
             <div className="w-2/3 px-2">
                 <Input
                     label="Title :"
@@ -109,7 +109,7 @@ function PostForm({ post }) {
                 />
                 {post && (
                     <div className="w-full mb-4">
-                        <img
+                       <img
                             src={appwriteService.getFilePreview(post.featuredImage)}
                             alt={post.title}
                             className="rounded-lg"
@@ -120,10 +120,15 @@ function PostForm({ post }) {
                     options={["active", "inactive"]}
                     label="Status"
                     className="mb-4"
+
                     {...register("status", { required: true })}
                 />
-                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
-                    {post ? "Update" : "Submit"}
+
+                <Button 
+                type="submit" 
+                bgColor={post ? "bg-green-500" : undefined} 
+                className="w-full">
+                      {post ? "Update" : "Submit"}
                 </Button>
             </div>
         </form>

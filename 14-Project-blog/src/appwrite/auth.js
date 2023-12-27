@@ -23,10 +23,11 @@ export class AuthServices{
         // wrapping this in to the try catch block for more optimisation 
         try {
             // creating the account 
-             const userAccount = await this.account.create(ID,email,password , name);
+             const userAccount = await this.account.create(ID.unique(),email,password , name);
             // if the userAccount is created then we are login in else returning whatever the account is containing 
             if(userAccount){
                 // other function for login
+                return this.login({email,password})
             }
             else{
                 return userAccount;

@@ -6,17 +6,19 @@ const Input = forwardRef(function Input({
     className = "",
     ...props
 }, ref){
+
+
     const id = useId()
     return (
-        <div className='w-full'>
+        <div className='flex w-[33vw] justify-between'>
             {label && <label 
-            className='inline-block mb-1 pl-1'
+            className=' '
             htmlFor={id}>
                 {label}
             </label>
             }
             <input type={type}
-                className={`${className}`}
+                className={`outline-none rounded-md bg-transparent border px-2 ${className}`}
                 ref={ref}
                 {...props}
                 id={id}

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Button, Input, Logo, logo } from "./index";
-import { Link, useNavigate } from "react-router-dom";
+import { Button, Input, Logo } from "./index";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import authServices from "../appwrite/auth";
 import { useForm } from "react-hook-form";
 import { login as authLogin, login } from "../Store/authSlice";
-import { useDispatch, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -27,25 +27,30 @@ function SignUp() {
     }
   };
 
+
   return (
-    <div>
-      <div>
+    <div className=" py-4 bg-slate-700 text-white">
+      <div className="flex flex-col gap-[1rem] justify-center items-center">
         <div>
-          <span>
-            <Logo />
+          <span className="">
+            < Logo />
           </span>
         </div>
 
-        <h2>Sign in to your account</h2>
+        <h2>Create an Account</h2>
         <p>
-          Don&apos;t have any account?&nbsp;
-          <Link to="/signup">Sign up</Link>
+            Have an account ?&nbsp;
+          <Link className="underline " to="/login">Login</Link>
         </p>
         {error && <p>{error}</p>}
 
-        <form onSubmit={handleSubmit(create)}>
-          <div>
+        <form 
+          className="w-full flex justify-center items-center"
+        onSubmit={handleSubmit(create)}>
+          <div className="flex flex-col gap-[0.8rem] justify-center items-center  
+          ">
             <Input
+            className="mx-2 px-2"
               label="Name:"
               type="text"
               placeholder="Full Name"
@@ -55,6 +60,7 @@ function SignUp() {
             />
 
             <Input
+              className="mx-2 px-2"
               label="Email:"
               placeholder="Enter Your Email"
               type="email"
@@ -70,6 +76,7 @@ function SignUp() {
             />
 
             <Input
+              className="mx-2 px-2"
               label="Password"
               type="password"
               placeholder="Enter your Password"
@@ -78,7 +85,7 @@ function SignUp() {
               })}
             />
 
-            <Button type="submit">Create Account</Button>
+            <Button type="submit">Sign Up</Button>
           </div>
         </form>
       </div>

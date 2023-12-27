@@ -36,7 +36,7 @@ function App() {
 
       <Header/>
         <main>
-        tOdo {/* todo:   <Outlet/> */}
+          <Outlet/>
         </main>
       <Footer/>
 
