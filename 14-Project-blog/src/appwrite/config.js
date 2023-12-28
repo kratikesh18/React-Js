@@ -25,12 +25,12 @@ export class DBservice{
             await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                ID,
+                slug,
                 {
-                    title, 
-                    slug, 
+                    title,  
                     content,
                     featuredimg, 
+                    status,
                     userId
                 }
             )            
@@ -101,10 +101,12 @@ export class DBservice{
         try {
             return await this.bucket.createFile(
                 conf.appwriteBucketId,
+                ID.unique(),
                 fileId
             )
         } catch (error) {
             console.log("Error Occured while Uploading the document " , error);
+            return false
         }
     }
 

@@ -9,10 +9,13 @@ function PostCard({
     featuredimg
 }) {
   return (
+
     <Link to={`/post/${$id}`}>
-        <div>
-            <div>
-                <img src= {dbService.getFilePreview(featuredimg)} alt={title}/>
+        <div className='flex flex-col justify-between items-center bg-gray-400 p-4 border-black border shadow-lg'>
+            <div className=' w-[10rem]'>
+                <img src= {dbService.getFilePreview(featuredimg)} 
+                className='rounded-md'
+                alt={title}/>
             </div>
             <h2 className="text-xl ">{title}</h2>
         </div>

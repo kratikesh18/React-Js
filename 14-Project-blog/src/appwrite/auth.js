@@ -6,7 +6,7 @@ import { Client, Account, ID } from "appwrite";
 export class AuthServices{
 
     // this is containing all the methods like login logout create user ,etc 
-    //creating the client 
+    // creating the client 
     client = new Client()
     account;
 
@@ -28,6 +28,7 @@ export class AuthServices{
             if(userAccount){
                 // other function for login
                 return this.login({email,password})
+                
             }
             else{
                 return userAccount;

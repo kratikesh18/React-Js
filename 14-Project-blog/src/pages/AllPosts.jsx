@@ -19,12 +19,15 @@ function AllPosts() {
     })
 
   return (
-    <div>
-        <Container>
+    <div className=''>
+        <Container >
             {
                 posts.map((post)=>(
-                    <div key={post.$id}>
-                        <PostCard post ={post}/>
+                    <div
+                    className='flex'  
+                    key={post.$id}>
+                    
+                        <PostCard {...post}/>
 
                     </div>
                 ))
