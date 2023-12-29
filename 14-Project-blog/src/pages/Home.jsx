@@ -17,21 +17,22 @@ function Home() {
   if (posts.length === 0) {
     return (
       <div>
-        <Container>
-          <div className="h-[20rem] flex justify-center items-center">
-            <div className="">
-              <h1 className="text-2xl font-bold">Login to read the posts </h1>
-            </div>
+        <Container  className="bg-[#e7e7e7]">
+          <div className="h-[20rem] w-full  flex flex-col gap-[2rem] justify-center items-center">
+              <h1 className="text-2xl font-bold ">Seems like you are not Logged in.! </h1>
+              <p className="font-semibold">Login to read all articles</p>
           </div>
         </Container>
       </div>
     );
   }
   return (
-    <div>
-      <Container>
+    <div className="flex justify-center  ">
+      <Container className="w-[95%] bg-[#e7e7e7]">
         {posts.map((post) => (
-          <div key={post.$id}>
+          <div key={post.$id}
+          className=""
+          >
             <PostCard {...post} />
           </div>
         ))}

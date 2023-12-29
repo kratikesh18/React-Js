@@ -25,7 +25,7 @@ function PostForm({ post }) {
         await dbService.uploadFile(data.image[0]) : null;
 
       if (file) {
-        dbService.deleteFile(post.featured-img);
+        dbService.deleteFile(post.featuredimg);
       }
 
       const dbPost = await dbService.updatePost
@@ -104,6 +104,7 @@ function PostForm({ post }) {
       </div>
       <div className="w-1/3 px-2">
         <Input
+          
           label="Featured Image :"
           type="file"
           className="mb-4"
@@ -113,7 +114,7 @@ function PostForm({ post }) {
         {post && (
           <div className="w-full mb-4">
             <img
-              src={dbService.getFilePreview(post.featured-img)}
+              src={dbService.getFilePreview(post.featuredimg)}
               alt={post.title}
               className="rounded-lg"
             />

@@ -28,18 +28,18 @@ function Login() {
     }
   };
 
-  return (
-    <div className="w-full">
-      <div className=" bg-slate-700 text-white flex flex-col py-4 gap-4 justify-center items-center">
+  return ( 
+    <div className="w-full h-[30rem] bg-[#fafafa] flex flex-col justify-center  ">
+      <div className="  text-black flex flex-col py-4 gap-4 justify-center items-center">
         <div>
           <span>
             <Logo  />
           </span>
         </div>
         
-        <h2>Sign in to your account</h2>
+        <h2 className="text-2xl">Sign in to your account</h2>
 
-        <p>
+        <p className="text-base font-semibold">
           Don&apos;t have any account?&nbsp;
           <Link className="underline" to="/signup">Sign up</Link>
         </p>
@@ -47,12 +47,13 @@ function Login() {
         {error && <p className="text-red-600 font-bold">{error}</p>}
 
         <form 
-          className=""
-        onSubmit={handleSubmit(login)}>
-            <div className="flex flex-col gap-4  justify-center items-center" >
+          className="w-[24rem] flex flex-col justify-center items-center"
+          onSubmit={handleSubmit(login)}
+        >
+            <div className="flex w-[80%] flex-col gap-4 justify-center items-center" >
 
                 <Input
-                className="" 
+                className=" " 
                 label = "Email:"
                 placeholder = "Enter Your Email"
                 type = "email"

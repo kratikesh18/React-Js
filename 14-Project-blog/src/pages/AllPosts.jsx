@@ -24,7 +24,7 @@ function AllPosts() {
             {
                 posts.map((post)=>(
                     <div
-                    className='flex'  
+                    className='flex '  
                     key={post.$id}>
                     
                         <PostCard {...post}/>

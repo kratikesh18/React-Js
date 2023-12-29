@@ -38,20 +38,20 @@ function Header() {
   ];
   return (
     <header>
-      <Container>
-        <nav className="flex bg-red-700 text-white p-4 justify-between items-center">
+      <Container className="flex justify-center">
+        <nav className="flex shadow-xl shadow-black/20 bg-white rounded-md w-[95%] text-black p-[1rem] justify-between items-center">
           <div>
             <Link to="/">
               <Logo />
             </Link>
           </div>
           <div className="">
-            <ul className=" flex gap-[1rem] ">
+            <ul className=" flex gap-[1rem] text-xl">
               {navItems.map((item) =>
                 item.active ? (
                   <li key={item.name}>
                     <button
-                     className="px-6 py-2 duration-200 hover:bg-black/30 rounded-full" onClick={() => navigate(item.slug)}>
+                     className="px-6 py-2 duration-200 hover:bg-gray-200  rounded-full" onClick={() => navigate(item.slug)}>
                       {item.name}
                     </button>
                   </li>

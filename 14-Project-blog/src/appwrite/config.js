@@ -22,7 +22,7 @@ export class DBservice{
     //and its some database operations 
     async createPost({title , slug , content , featuredimg , status , userId}){
         try {
-            await this.databases.createDocument(
+            return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 slug,
@@ -94,15 +94,16 @@ export class DBservice{
             )
         } catch (error) {
             console.log("Error Occured while Fetching all posts " ,error)
+            return false;
         }
     }
 
-    async uploadFile(fileId){
+    async uploadFile(file){
         try {
             return await this.bucket.createFile(
                 conf.appwriteBucketId,
                 ID.unique(),
-                fileId
+                file
             )
         } catch (error) {
             console.log("Error Occured while Uploading the document " , error);
@@ -111,18 +112,23 @@ export class DBservice{
     }
 
     getFilePreview(fileId){
-            return  this.bucket.getFilePreview(
-                conf.appwriteBucketId,
-                 fileId   
-            ) 
-    }
-
-
-    deleteFile(fileId){
-        return this.bucket.deleteFile(
+        return this.bucket.getFilePreview(
             conf.appwriteBucketId,
             fileId
         )
+    }
+
+    async deleteFile(fileId){
+        try {
+            await this.bucket.deleteFile(
+                conf.appwriteBucketId,
+                fileId
+            )
+            return true
+        } catch (error) {
+            console.log("Error Occured while Deleting the document " , error);    
+            return false;
+        }
     }
 
 }
