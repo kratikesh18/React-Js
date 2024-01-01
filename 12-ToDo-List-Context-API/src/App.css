@@ -1,7 +1,6 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -39,4 +38,16 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+
+.bg-gradient-custom {
+  background-color: rgb(107, 10, 10);
+  background-image: linear-gradient(324deg, rgba(107, 10, 10, 1) 0%, rgba(73, 11, 108, 1) 92%);
+  padding-bottom: 2rem;
+}
+
+.shadow-custom{
+  box-shadow: 3px 3px 30px rgba(104, 13, 13, 0.874);
 }
