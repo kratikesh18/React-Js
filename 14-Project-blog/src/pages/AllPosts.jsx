@@ -17,18 +17,17 @@ function AllPosts() {
             setPosts(posts.documents)
         }
     })
+    
 
   return (
-    <div className=''>
-        <Container >
+    <div className='flex justify-center'>
+        <Container className=' flex justify-center w-[90%] bg-black/10'>
             {
                 posts.map((post)=>(
                     <div
                     className='flex '  
                     key={post.$id}>
-                    
                         <PostCard {...post}/>
-
                     </div>
                 ))
             }
