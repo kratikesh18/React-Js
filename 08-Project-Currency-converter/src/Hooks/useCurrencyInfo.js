@@ -9,13 +9,11 @@ function  useCurrencyInfo(currency){
     //useEffect will invoke after any of the dependencies mounted and unmounted 
     useEffect(()=>{
         fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`)
-        .then((response)=>{
-            return response.json();
-        })
-        .then((data)=>{
+        
+        .then((response)=> response.json())
+        .then((data)=>
             //if we store the data into some variable then it will crate bug or issue so we are holding it into the state 
-            setData(data[currency])
-        })
+            setData(data[currency]))
         //its dependency changes when the currency is changed
     }, [currency])
 
